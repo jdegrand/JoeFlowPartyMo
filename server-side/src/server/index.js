@@ -6,6 +6,8 @@ const port = 3300;
 
 var color = 'red';
 
+var game = null;
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
@@ -21,6 +23,10 @@ io.on('connection', function(socket){
       socket.emit("colorReturn", color)
   });
   
+  socket.on("startGame", (name) => {
+    io.emit("returnGame", name)
+  });
+
   socket.on("tap", () => {
     colorChange();
   });

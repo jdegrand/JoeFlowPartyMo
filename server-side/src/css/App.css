@@ -1,0 +1,16 @@
+body {
+    background-color: aquamarine;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    margin-top: 20%;
+    color: green;
+    font-size: 80pt;
+}

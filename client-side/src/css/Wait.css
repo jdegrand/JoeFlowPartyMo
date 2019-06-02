@@ -1,0 +1,23 @@
+body {
+    background-color: aquamarine;
+    -webkit-overflow-scrolling: touch;
+    position: fixed;
+}
+
+html, body {
+    overflow: hidden;
+}
+
+.wait {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    height: 80vh;
+}
+
+.text {
+    font-size: 80pt;
+    text-align: center;
+}
