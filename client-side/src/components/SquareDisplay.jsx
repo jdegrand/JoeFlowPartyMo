@@ -1,8 +1,9 @@
 import React from 'react';
+import * as fconfig from '../config';
+
 import openSocket from 'socket.io-client';
 
-const socket = openSocket("http://localhost:3300/");
-
+const socket = openSocket("http://"+ fconfig.returnAddress() + ":3300");
 
 class SquareDisplay extends React.Component {
     state = {color: null }

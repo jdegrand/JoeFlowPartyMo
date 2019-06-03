@@ -1,10 +1,12 @@
 import React from 'react';
 import Game from './components/Game';
+import DrawTheThing from './components/DrawTheThing';
 import './css/App.css';
+import * as fconfig from './config';
 
 import openSocket from 'socket.io-client';
 
-const socket = openSocket("http://localhost:3300/");
+const socket = openSocket("http://"+ fconfig.returnAddress() + ":3300");
 
 class App extends React.Component {
   state = {started: false}; 
@@ -19,13 +21,13 @@ class App extends React.Component {
         <div className="title">
           JoeFlowPartyMo
         </div>
-        <Game name="Who Drew It Better" startGame={this.startGameFunc} link="./hello.com"></Game>
+        <Game name="Draw The Thing" startGame={this.startGameFunc} link="./hello.com"></Game>
         <Game name="Crazy MadLibs" startGame={this.startGameFunc} link="./hello.com"></Game>
 
       </div>
     );
     } else {
-      return <div>Worked!</div>
+      return <DrawTheThing />;
     };
   };
 }

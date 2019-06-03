@@ -1,7 +1,10 @@
+@import url(http://fonts.googleapis.com/css?family=Fira+Mono);
+
 body {
     background-color: aquamarine;
     -webkit-overflow-scrolling: touch;
     position: fixed;
+    /* font-family: 'Fira Mono',serif; */
 }
 
 html, body {

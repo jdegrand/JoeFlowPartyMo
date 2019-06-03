@@ -1,6 +1,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var Sentencer = require('sentencer');
 
 const port = 3300;
 
@@ -24,6 +25,7 @@ io.on('connection', function(socket){
   });
   
   socket.on("startGame", (name) => {
+    Sentencer.make("{{ noun }}")
     io.emit("returnGame", name)
   });
 
