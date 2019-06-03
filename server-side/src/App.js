@@ -9,13 +9,23 @@ import openSocket from 'socket.io-client';
 const socket = openSocket("http://"+ fconfig.returnAddress() + ":3300");
 
 class App extends React.Component {
-  state = {started: false}; 
+  state = {chosen: false}; 
   startGameFunc = (name) => {
-    socket.emit("startGame", name)
-    this.setState({started: true});
+    socket.emit("choseGame", name)
+    this.setState({chosen: true});
   };
+
+  componentWillMount() {
+    socket.emit("isGameChosen");
+    socket.on("returnIsChosen", (isChosen) => {
+        if(isChosen) {
+          this.setState({ chosen: true });
+        }
+    });
+  }
+  
   render() {
-    if (!this.state.started) {
+    if (!this.state.chosen) {
     return (
       <div className="app" >
         <div className="title">
