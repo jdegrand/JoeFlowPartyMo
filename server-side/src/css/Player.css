@@ -1,13 +1,44 @@
 .head {
     height: 30vh;
+    font-size: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
 }
+
+.sub-head {
+    height: 20vh;
+    vertical-align: middle;
+    display : inline-flex;
+    align-items : center;
+    justify-content: center;
+    margin: auto;
+}
+
+.start {
+    height: 14vh;
+    width: 14vw;
+    position: absolute;
+    /* background-color: blueviolet; */
+    font-size: 1.67vw;
+    top: 5vh;
+    right: 5vh;
+    display : inline-flex;
+    align-items : center;
+    justify-content: center;
+}
+
 .player-card {
     width: 25%;
     height: 30vh;
     text-align: center;
     vertical-align: middle;
     padding: 1px;
-    font-size: 60pt;
+    font-size: 5vw;
     /* background-color: blueviolet; */
     border: 1px solid red;
     display : inline-flex;

@@ -16,10 +16,10 @@ class App extends React.Component {
   };
 
   componentWillMount() {
-    socket.emit("isGameChosen");
-    socket.on("returnIsChosen", (isChosen) => {
-        if(isChosen) {
-          this.setState({ chosen: true });
+    socket.emit("returnGameIfChosen");
+    socket.on("returnGameAndChosen", (chosen, game) => {
+        if(chosen) {
+          this.setState({ chosen: true, game: game });
         }
     });
   }

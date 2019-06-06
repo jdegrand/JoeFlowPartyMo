@@ -13,31 +13,32 @@ class PlayerLobby extends React.Component {
 
     updatePlayers = () => {
         var count = 0;
-        var blank = new Array('8')
-        // this.players = blank.map((curr, count) => {
-        //     if (count < this.state.players.length) {
-        //         return <PlayerCard username={this.state.players[count].name} />
-        //     } else {
-        //         return <PlayerCard username="BOGUS!" />
-        //     }
-        // });
-        // while (count < 8) {
-        //     if (count < this.state.players.length) {
-        //         this.blank[count] = <PlayerCard username={this.state.players[count].name} />
-        //     } else {
-        //         this.blank[count] = <PlayerCard username="BOGUS!" />
-        //     }
-        //     count++;
-        // }
+        var playerList = new Array('8')
+        while (count < 8) {
+            if (count < this.state.players.length) {
+                playerList[count] = <PlayerCard username={ this.state.players[count].name} style={{}} />
+            } else {
+                playerList[count] = <PlayerCard username="Empty" style={{ color: 'grey', fontSize: '2.5vw'}} />
+            }
+            count++;
+        }
+        return playerList;
+    }
 
+    onStartClick = () => {
+        if (this.state.players.length < 2) {
+            // return false;
+        } else {
+            this.setState({started: true})
+        }
+    }
 
-
-        this.players = this.state.players.map(({ name }) => {
-            // return <li>{ name }</li>;
-            return <PlayerCard username={name} />
-        });
-        console.log(this.players)
-        return this.players;
+    getButtonColor = () => {
+        if (this.state.players.length < 2) {
+            return "grey"
+        } else {
+            return "purple"
+        }
     }
 
     componentWillMount() {
@@ -47,10 +48,21 @@ class PlayerLobby extends React.Component {
         });
     }
 
+
     render() {
         return (
             <div>
-                <div className="head">{ this.props.game }</div>
+                <div className="head">
+                    <div className="sub-head">
+                        { this.props.game }
+                    </div>
+                    <div className="sub-head" style={{fontSize: '2.5vw'}}>
+                        Current Players:
+                    </div>
+                    <div className="start" style={{ backgroundColor: this.getButtonColor() }} onClick={ this.onStartClick }>
+                        Start
+                    </div>
+                </div>
                 <div>{this.updatePlayers()}</div>
             </div>
         );

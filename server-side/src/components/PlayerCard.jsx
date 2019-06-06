@@ -4,7 +4,7 @@ import '../css/Player.css';
 class PlayerCard extends React.Component {
     render() {
         return (
-            <div className="player-card">{ this.props.username }</div>
+            <div className="player-card" style={ this.props.style }>{ this.props.username }</div>
         );
     };
 }

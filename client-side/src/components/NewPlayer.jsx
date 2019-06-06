@@ -11,14 +11,20 @@ class NewPlayer extends React.Component {
 
     onFormSubmit = (event) => {
         event.preventDefault();
-        socket.emit("newPlayer", this.state.name);
-        socket.on("newPlayerSuccessful", (result) => {
-            if (result) {
-                this.props.login(this.state.name)
-            } else {
-                this.setState({ error: "Name already in use!" })
-            }
-        });
+        if (this.state.name.replace(/\s/g, '') === '') {
+            this.setState({ error: "Name cannot be blank!" })
+        } else if (this.state.name.length > 7) {
+            this.setState({ error: "Name cannot be more than 7 characters" })
+        } else {
+            socket.emit("newPlayer", this.state.name);
+            socket.on("newPlayerSuccessful", (result) => {
+                if (result) {
+                    this.props.login(this.state.name)
+                } else {
+                    this.setState({ error: "Name already in use!" })
+                }
+            });
+        }
     }
 
     renderName = () => {

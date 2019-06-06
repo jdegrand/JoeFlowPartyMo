@@ -30,12 +30,18 @@ io.on('connection', function(socket){
   
   socket.on("choseGame", (name) => {
     Sentencer.make("{{ noun }}");
-    // gameChosen = true;
-    io.emit("returnGame", name);
+    gameChosen = true;
+    game = name;
+    io.emit("returnGame", game);
+  });
+
+  socket.on("returnGameIfChosen", () => {
+    io.emit("returnGameAndChosen", gameChosen, game)
   });
 
   socket.on("isGameChosen", () => {
-    io.emit("returnIsChosen", gameChosen);
+    io.emit("returnIsChosen", gameChosen, game);
+    io.emit("returnGame", game);
   });
 
   playerExists = (name) => {
