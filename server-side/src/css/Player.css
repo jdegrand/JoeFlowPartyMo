@@ -1,0 +1,17 @@
+.head {
+    height: 30vh;
+}
+.player-card {
+    width: 25%;
+    height: 30vh;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1px;
+    font-size: 60pt;
+    /* background-color: blueviolet; */
+    border: 1px solid red;
+    display : inline-flex;
+    align-items : center;
+    justify-content: center;
+    margin: auto;
+}

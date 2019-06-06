@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Fira+Mono);
-
+/* html, body { height: 100%; width: 100%; } */
+/* div { height: 100%; width: 100%;} */
 body {
     background-color: aquamarine;
     font-family: 'Fira Mono',serif;
@@ -10,10 +11,11 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
 }
 
 .title {
-    margin-top: 20%;
+    margin-top: 10%;
     color: green;
     font-size: 80pt;
 }

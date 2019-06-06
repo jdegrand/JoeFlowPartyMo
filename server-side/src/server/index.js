@@ -30,7 +30,7 @@ io.on('connection', function(socket){
   
   socket.on("choseGame", (name) => {
     Sentencer.make("{{ noun }}");
-    gameChosen = true;
+    // gameChosen = true;
     io.emit("returnGame", name);
   });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Game from './components/Game';
-import DrawTheThing from './components/DrawTheThing';
+import PlayerLobby from './components/PlayerLobby';
 import './css/App.css';
 import * as fconfig from './config';
 
@@ -9,10 +9,10 @@ import openSocket from 'socket.io-client';
 const socket = openSocket("http://"+ fconfig.returnAddress() + ":3300");
 
 class App extends React.Component {
-  state = {chosen: false}; 
+  state = {chosen: false, game: ''}; 
   startGameFunc = (name) => {
     socket.emit("choseGame", name)
-    this.setState({chosen: true});
+    this.setState({chosen: true, game: name});
   };
 
   componentWillMount() {
@@ -37,7 +37,7 @@ class App extends React.Component {
       </div>
     );
     } else {
-      return <DrawTheThing />;
+      return <PlayerLobby game={ this.state.game } />;
     };
   };
 }
